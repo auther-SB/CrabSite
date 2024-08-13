@@ -34,15 +34,19 @@
             padding: 20px 20px;
         }
 
-        .discord-box {
-            background-color: #333;
-            padding: 20px;
-            margin: 0 auto 20px;
-            display: inline-block;
-            border-radius: 10px;
-            text-align: center;
-            width: 300px;
+        .discord-box,
+        .server-box {
+            background-color: #2a2a2a; /* Same color for both boxes */
             border: 1px solid black;
+            border-radius: 10px;
+            margin: 20px auto;
+            padding: 20px;
+            display: inline-block;
+            width: 300px;
+        }
+
+        .discord-box {
+            margin-bottom: 0;
         }
 
         .discord-pfp {
@@ -68,26 +72,30 @@
         }
 
         .server-box {
-            background-color: #2a2a2a; /* Darker but lighter than background */
-            padding: 20px;
-            border-radius: 10px;
-            text-align: left;
-            margin: 20px auto;
-            width: 300px;
-            border: 1px solid black;
-            display: inline-block;
             position: relative;
+            text-align: center;
         }
 
-        .server-info {
-            margin-bottom: 10px;
+        .server-info-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 20px;
         }
 
         .server-logo {
             width: 64px;
             height: 64px;
             border-radius: 10px;
-            margin-right: 15px;
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .server-info {
+            margin-left: 100px; /* Align with server logo */
+            text-align: left;
+            position: relative;
         }
 
         .status-circle {
@@ -106,12 +114,6 @@
             background-color: grey;
         }
 
-        .server-info-title {
-            font-size: 1.2em;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
         .join-button {
             background-color: #4a5b9d; /* Slightly darker */
             color: white;
@@ -120,14 +122,15 @@
             border-radius: 5px;
             text-align: center;
             text-decoration: none;
-            display: inline-block;
+            display: block;
+            width: 100%;
             font-size: 16px;
-            margin-top: 10px;
+            margin-top: 20px;
             cursor: pointer;
             position: absolute;
             bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
+            left: 0;
+            transform: translateX(0);
         }
     </style>
 </head>
@@ -146,9 +149,9 @@
         </div>
 
         <div class="server-box">
+            <div class="server-info-title">Crabs Services</div>
+            <img src="https://cdn.discordapp.com/attachments/1209905636687749181/1272924510437244938/IMG_5477.png?ex=66bcbed5&is=66bb6d55&hm=e6b22c9d60ab23b45f40ab1de863624a5a4a02c42f95a048b6b4231218837789&" alt="Server Logo" class="server-logo">
             <div class="server-info">
-                <div class="server-info-title">Crabs Services</div>
-                <img src="https://cdn.discordapp.com/attachments/1209905636687749181/1272924510437244938/IMG_5477.png?ex=66bcbed5&is=66bb6d55&hm=e6b22c9d60ab23b45f40ab1de863624a5a4a02c42f95a048b6b4231218837789&" alt="Server Logo" class="server-logo">
                 <p><span class="status-circle online-circle"></span><span id="online-members">Loading...</span> Online members</p>
                 <p><span class="status-circle total-circle"></span><span id="total-members">Loading...</span> Total members</p>
             </div>
