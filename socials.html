@@ -96,6 +96,12 @@
             display: inline-block;
         }
 
+        .role-info {
+            font-size: 0.8em;
+            color: #999;
+            margin-top: 5px;
+        }
+
         .server-info-title {
             font-size: 1.2em;
             font-weight: bold;
@@ -161,6 +167,7 @@
                     <div class="profile-info">
                         <div class="discord-username">oopbl</div>
                         <div class="discord-id">User ID: 1086888096475402250</div>
+                        <div class="role-info">Co-Owner</div>
                     </div>
                 </div>
                 <div class="discord-profile">
@@ -168,6 +175,7 @@
                     <div class="profile-info">
                         <div class="discord-username">mrcrxb</div>
                         <div class="discord-id">User ID: 1208800013153472562</div>
+                        <div class="role-info">Co-Owner</div>
                     </div>
                 </div>
             </div>
@@ -180,13 +188,13 @@
                 <p><span class="status-circle online-circle"></span><span id="online-members">Loading...</span> Online members</p>
                 <p><span class="status-circle total-circle"></span><span id="total-members">Loading...</span> Total members</p>
             </div>
-            <a href="https://discord.gg/s7jAmt3z" class="join-button">Join</a>
+            <a href="https://discord.gg/39fybXBfP5" class="join-button">Join</a>
         </div>
     </div>
 
     <script>
         function updateServerInfo() {
-            fetch('https://discord.com/api/v9/invites/s7jAmt3z?with_counts=true&with_expiration=true')
+            fetch('https://discord.com/api/v9/invites/39fybXBfP5?with_counts=true&with_expiration=true')
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('Network response was not ok');
@@ -210,8 +218,8 @@
                 });
         }
 
-        // Update every 5 minutes (300000 ms)
-        setInterval(updateServerInfo, 300000);
+        // Update every 60 seconds (60000 ms)
+        setInterval(updateServerInfo, 60000);
 
         // Initial update
         updateServerInfo();
