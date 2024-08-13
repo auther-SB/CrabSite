@@ -65,6 +65,59 @@
             border-radius: 5px;
             display: inline-block;
         }
+
+        .server-box {
+            background-color: #444;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: left;
+            margin: 20px auto;
+            width: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .server-logo {
+            width: 64px;
+            height: 64px;
+            border-radius: 10px;
+            margin-right: 15px;
+        }
+
+        .server-info {
+            flex-grow: 1;
+        }
+
+        .status-circle {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 5px;
+        }
+
+        .online-circle {
+            background-color: green;
+        }
+
+        .total-circle {
+            background-color: grey;
+        }
+
+        .join-button {
+            background-color: #7289DA;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 15px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -80,6 +133,35 @@
             <div class="discord-username">mrcrxb</div>
             <div class="discord-id">User ID: 1208800013153472562</div>
         </div>
+
+        <div class="server-box">
+            <img src="https://cdn.discordapp.com/icons/1208800013153472562/a_0b9cce9a6c29cf4b0f0e93bb162e7baf.png?size=1024" alt="Server Logo" class="server-logo">
+            <div class="server-info">
+                <p><span class="status-circle online-circle"></span><span id="online-members">0</span> Online members</p>
+                <p><span class="status-circle total-circle"></span><span id="total-members">0</span> Total members</p>
+            </div>
+        </div>
+
+        <a href="https://discord.gg/s7jAmt3z" class="join-button">Join</a>
     </div>
+
+    <script>
+        function updateServerInfo() {
+            // Replace with your actual API endpoint
+            fetch('https://your-api-endpoint.com/discord-server-info')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('online-members').textContent = data.online_members;
+                    document.getElementById('total-members').textContent = data.total_members;
+                })
+                .catch(error => console.error('Error fetching server data:', error));
+        }
+
+        // Update every 5 minutes (300000 ms)
+        setInterval(updateServerInfo, 300000);
+
+        // Initial update
+        updateServerInfo();
+    </script>
 </body>
 </html>
