@@ -58,23 +58,28 @@
             box-sizing: border-box;
         }
 
-        .discord-profile {
+        .discord-profile-container {
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            margin-bottom: 20px;
+        }
+
+        .discord-profile {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 10px;
         }
 
         .discord-pfp {
             border-radius: 50%;
-            width: 80px;
-            height: 80px;
-            margin: 0 10px;
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
         }
 
         .profile-info {
-            text-align: left;
-            flex: 1;
+            text-align: center;
         }
 
         .discord-username {
@@ -133,7 +138,8 @@
             text-align: center;
             text-decoration: none;
             display: inline-block;
-            width: 150px;
+            width: 75%;
+            max-width: 200px;
             font-size: 16px;
             margin-top: 20px;
             cursor: pointer;
@@ -149,18 +155,20 @@
 
     <div class="content">
         <div class="discord-box">
-            <div class="discord-profile">
-                <img src="https://cdn.discordapp.com/avatars/1208800013153472562/bbda64b61724b05aff4df10ff25e0260?size=1024" alt="Discord Profile Picture" class="discord-pfp">
-                <div class="profile-info">
-                    <div class="discord-username">mrcrxb</div>
-                    <div class="discord-id">User ID: 1208800013153472562</div>
+            <div class="discord-profile-container">
+                <div class="discord-profile">
+                    <img src="https://cdn.discordapp.com/avatars/1086888096475402250/bbcfcfc970e3bb5016cc2ca1fb07986e?size=1024" alt="Discord Profile Picture" class="discord-pfp">
+                    <div class="profile-info">
+                        <div class="discord-username">oopbl</div>
+                        <div class="discord-id">User ID: 1086888096475402250</div>
+                    </div>
                 </div>
-            </div>
-            <div class="discord-profile">
-                <img src="https://cdn.discordapp.com/avatars/1086888096475402250/bbcfcfc970e3bb5016cc2ca1fb07986e?size=1024" alt="Discord Profile Picture" class="discord-pfp">
-                <div class="profile-info">
-                    <div class="discord-username">oopbl</div>
-                    <div class="discord-id">User ID: 1086888096475402250</div>
+                <div class="discord-profile">
+                    <img src="https://cdn.discordapp.com/avatars/1208800013153472562/bbda64b61724b05aff4df10ff25e0260?size=1024" alt="Discord Profile Picture" class="discord-pfp">
+                    <div class="profile-info">
+                        <div class="discord-username">mrcrxb</div>
+                        <div class="discord-id">User ID: 1208800013153472562</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -195,7 +203,4 @@
         setInterval(updateServerInfo, 300000);
 
         // Initial update
-        updateServerInfo();
-    </script>
-</body>
-</html>
+        update
