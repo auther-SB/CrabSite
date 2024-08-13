@@ -10,12 +10,22 @@
             font-family: Arial, sans-serif;
             background-color: #1a1a1a;
             color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            justify-content: center;
         }
 
         .top-bar {
             background-color: #333;
             padding: 10px;
             text-align: center;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
         }
 
         .top-bar a {
@@ -31,22 +41,21 @@
 
         .content {
             text-align: center;
-            padding: 20px 20px;
+            padding: 20px;
+            max-width: 1000px;
+            width: 100%;
         }
 
         .discord-box,
         .server-box {
-            background-color: #2a2a2a; /* Same color for both boxes */
+            background-color: #2a2a2a;
             border: 1px solid black;
             border-radius: 10px;
             margin: 20px auto;
             padding: 20px;
-            display: inline-block;
-            width: 300px;
-        }
-
-        .discord-box {
-            margin-bottom: 0;
+            width: 100%;
+            max-width: 600px;
+            box-sizing: border-box;
         }
 
         .discord-pfp {
@@ -71,11 +80,6 @@
             display: inline-block;
         }
 
-        .server-box {
-            position: relative;
-            text-align: center;
-        }
-
         .server-info-title {
             font-size: 1.2em;
             font-weight: bold;
@@ -86,15 +90,11 @@
             width: 64px;
             height: 64px;
             border-radius: 10px;
-            position: absolute;
-            left: 20px;
-            top: 50%;
-            transform: translateY(-50%);
+            margin-bottom: 20px;
         }
 
         .server-info {
-            margin-left: 100px; /* Align with server logo */
-            text-align: left;
+            text-align: center;
         }
 
         .status-circle {
@@ -114,17 +114,17 @@
         }
 
         .join-button {
-            background-color: #4a5b9d; /* Slightly darker */
+            background-color: #4a5b9d;
             color: white;
             padding: 12px 20px;
             border: none;
             border-radius: 5px;
             text-align: center;
             text-decoration: none;
-            display: block;
-            width: 150px; /* Shorter length */
+            display: inline-block;
+            width: 150px;
             font-size: 16px;
-            margin: 20px auto 0; /* Centered and positioned below other elements */
+            margin-top: 20px;
             cursor: pointer;
         }
     </style>
