@@ -187,10 +187,21 @@
     <script>
         function updateServerInfo() {
             fetch('https://discord.com/api/v9/invites/s7jAmt3z?with_counts=true&with_expiration=true')
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
                 .then(data => {
-                    document.getElementById('online-members').textContent = data.approximate_presence_count;
-                    document.getElementById('total-members').textContent = data.approximate_member_count;
+                    if (data.approximate_presence_count !== undefined && data.approximate_member_count !== undefined) {
+                        document.getElementById('online-members').textContent = data.approximate_presence_count;
+                        document.getElementById('total-members').textContent = data.approximate_member_count;
+                    } else {
+                        console.error('Data format error:', data);
+                        document.getElementById('online-members').textContent = 'Error';
+                        document.getElementById('total-members').textContent = 'Error';
+                    }
                 })
                 .catch(error => {
                     console.error('Error fetching server data:', error);
@@ -203,4 +214,7 @@
         setInterval(updateServerInfo, 300000);
 
         // Initial update
-        update
+        updateServerInfo();
+    </script>
+</body>
+</html>
